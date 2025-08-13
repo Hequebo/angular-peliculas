@@ -1,0 +1,51 @@
+<form style="margin-bottom: 1rem;">
+    <mat-form-field>
+        <input type="text" placeholder="Seleccione los actores" matInput [formControl]="control" [matAutocomplete]="auto">
+        <mat-autocomplete #auto (optionSelected)="actorSelected($event)">
+            @for (actor of actors; track $index) {
+                <mat-option [value]="actor">
+                    <img [src]="actor.photo" alt="actor-foto">
+                    {{ actor.name }}
+                </mat-option>
+            }
+        </mat-autocomplete>
+    </mat-form-field>
+</form>
+
+@if (actorSelected.length > 0) {
+    <table mat-table [dataSource]="selectedActors" class="mat-elevation-z8" cdkDropList [cdkDropListData]="selectedActors"
+        (cdkDropListDropped)="finishDrag($event)"
+    >
+        <!-- IMAGEN -->
+        <ng-container matColumnDef="imagen">
+            <td mat-cell *matCellDef="let actor">
+                <img style="width: 50px;" [src]="actor.photo" alt="actor-photo">
+            </td>
+        </ng-container>
+        <!-- NOMBRE -->
+        <ng-container matColumnDef="nombre">
+            <td mat-cell *matCellDef="let actor">
+                {{ actor.name }}
+            </td>
+        </ng-container>
+        <!-- PERSONAJE -->
+        <ng-container matColumnDef="personaje">
+            <td mat-cell *matCellDef="let actor">
+                <mat-form-field appearance="outline" style="margin: 10px 0;">
+                    <mat-label>Personaje</mat-label>
+                    <input matInput [(ngModel)]="actor.character">
+                </mat-form-field>
+            </td>
+        </ng-container>
+        <!--  ACCIONES -->
+        <ng-container matColumnDef="acciones">
+            <td mat-cell *matCellDef="let actor">
+                <mat-icon mat-list-icon (click)="remove(actor)">
+                    close
+                </mat-icon>
+            </td>
+        </ng-container>
+
+        <tr mat-row *matRowDef="let row; columns: columnsToShow" cdkDrag [cdkDragData]="row"></tr>
+    </table>
+}

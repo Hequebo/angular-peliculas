@@ -1,0 +1,9 @@
+<h2>{{ title }}</h2>
+
+<app-show-errors [errors]="errors"></app-show-errors>
+
+<ng-template #formContainer></ng-template>
+
+@if (loading) {
+    <app-loading></app-loading>
+}

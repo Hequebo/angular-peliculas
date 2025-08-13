@@ -1,0 +1,39 @@
+<form (submit)="saveChanges()" [formGroup]="form">
+    <!-- TITULO -->
+    <mat-form-field appearance="outline">
+        <mat-label>T&iacute;tulo</mat-label>
+        <input matInput [formControl]="form.controls.title">
+        <mat-error>{{ getErrorsTitleField() }}</mat-error>
+    </mat-form-field>
+    <!-- FECHA DE LANZAMIENTO -->
+    <mat-form-field appearance="outline">
+        <mat-label>Fecha de Lanzamiento</mat-label>
+        <input matInput [matDatepicker]="picker" [formControl]="form.controls.releaseDate">
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-error>{{ getErrorsReleaseDateField() }}</mat-error>
+    </mat-form-field>
+    <!-- TRAILER -->
+    <mat-form-field appearance="outline">
+        <mat-label>Trailer</mat-label>
+        <input matInput [formControl]="form.controls.trailer">
+    </mat-form-field>
+    <!-- POSTER -->
+    <div>
+        <app-input-img [currentImageURL]="model?.poster" title="Poster de la Película" (selectedFile)="handleSelectedFile($event)"></app-input-img>
+    </div>
+    <!-- GÉNEROS -->
+     <h4>Seleccione los G&eacute;neros</h4>
+    <app-multi-selector [selected]="selectedGenres" [noSelected]="noSelectedGenres"></app-multi-selector>
+    <!-- CINES -->
+    <h4>Seleccione los C&iacute;nes</h4>
+    <app-multi-selector [selected]="selectedCinemas" [noSelected]="noSelectedCinemas"></app-multi-selector>
+    <!-- ACTORES -->
+     <h4>Selecciones los Actores</h4>
+     <app-auto-complete-actors [selectedActors]="selectedActors"></app-auto-complete-actors>
+    <!-- GUARDAR CAMBIOS -->
+    <div class="buttons-container">
+        <button type="submit" mat-flat-button [disabled]="form.invalid">Guardar Cambios</button>
+        <a routerLink="/" mat-stroked-button>Cancelar</a>
+    </div>
+</form>

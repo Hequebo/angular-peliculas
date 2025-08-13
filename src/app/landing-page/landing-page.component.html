@@ -1,0 +1,7 @@
+<h2>En Cines</h2>
+
+<app-movies-list [movies]="inCinemasMovies" (deleted)="movieDeleted()"></app-movies-list>
+
+<h2>Pr&oacute;ximos estrenos</h2>
+
+<app-movies-list [movies]="nextReleasesMovies" (deleted)="movieDeleted()"></app-movies-list>

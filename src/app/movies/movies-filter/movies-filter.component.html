@@ -1,0 +1,38 @@
+<h2>Buscar Pel&iacute;culas</h2>
+
+<form [formGroup]="form">
+    <mat-form-field appearance="outline">
+        <mat-label>T&iacute;tulo</mat-label>
+        <input type="text" matInput [formControl]="form.controls.title">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>G&eacute;nero</mat-label>
+        <mat-select [formControl]="form.controls.genreId">
+            <mat-option [value]="0">--Seleccione un g&eacute;nero--</mat-option>
+            @for (genre of genres; track $index) {
+                <mat-option [value]="genre.id">{{ genre.name }}</mat-option>
+            }
+        </mat-select>
+    </mat-form-field>
+    <div>
+        <mat-checkbox [formControl]="form.controls.nextReleases">Pr&oacute;ximos Estrenos</mat-checkbox>
+    </div>
+    <div>
+        <mat-checkbox [formControl]="form.controls.inCinemas">En Cines</mat-checkbox>
+    </div>
+    <div>
+        <button mat-flat-button class="warn" (click)="clearSearch()">Limpiar</button>
+    </div>
+</form>
+
+<app-movies-list [movies]="movies"></app-movies-list>
+
+<mat-paginator
+    showFirstLastButtons
+    [length]="totalRecordsAmount"
+    [pageIndex]="pagination.page"
+    [pageSize]="pagination.recordsPerPage"
+    [pageSizeOptions]="[5, 10, 50]"
+    class="mat-elevation-z8"
+    (page)="updatePagination($event)"
+    ></mat-paginator>

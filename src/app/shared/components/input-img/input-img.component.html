@@ -1,0 +1,14 @@
+<h4>{{ title }}</h4>
+
+<div>
+    <button type="button" mat-raised-button (click)="fileLoader.click()">Seleccionar imagen</button>
+    <input type="file" hidden #fileLoader accept="image/*" (change)="handleChange($event)">
+</div>
+
+<div>
+    @if (base64Image) {
+        <img [src]="base64Image" width="169" height="250" alt="actor-image">
+    } @else if (currentImageURL) {
+        <img [src]="currentImageURL" width="169" height="250" alt="actor-image">
+    }
+</div>

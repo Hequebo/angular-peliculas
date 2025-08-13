@@ -1,0 +1,31 @@
+.movies-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.movie-container {
+    margin-right: 2%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+p {
+    max-width: 225px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+button {
+    margin-left: 1rem;
+}
+
+.poster {
+    width: 259px;
+    height: 384px;
+}
+
+a {
+    text-decoration: none;
+}
