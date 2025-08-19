@@ -1,6 +1,6 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 import { AuthenticationResponseDTO, UserCredentialsDTO, UserDTO } from './security';
 import { Observable, tap } from 'rxjs';
 import { PaginationDTO } from '../shared/models/paginationDTO';

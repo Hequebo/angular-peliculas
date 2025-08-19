@@ -4,7 +4,7 @@ import { CinemaCreationDTO, CinemaDTO } from './models/cinema';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { PaginationDTO } from '../shared/models/paginationDTO';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 import { buildQueryParams } from '../shared/functions/build-query-params';
 
 @Injectable({

@@ -35,6 +35,6 @@ export const routes: Routes = [
     { path: 'pelicula/:id', component: MovieDetailsComponent },
     { path: 'login', component: LoginComponent },
     { path: 'registrar', component: SigninComponent },
-    { path: 'usuarios', component: UsersIndexComponent, canActivate: [isAdminGuard]},
+    { path: 'usuarios', component: UsersIndexComponent, canActivate: [isAdminGuard] },
     { path: '**', redirectTo: '' }
 ];

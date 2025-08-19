@@ -24,7 +24,7 @@ export class AuthenticationFormComponent {
   #formBuilder = inject(FormBuilder);
 
   form = this.#formBuilder.group({
-    email: ['', { validatiors: [Validators.required, Validators.email]}],
+    email: ['', { validators: [Validators.required, Validators.email]}],
     password: ['', { validators: [Validators.required]}]
   });
 

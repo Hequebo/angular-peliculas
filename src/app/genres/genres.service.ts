@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { GenreCreationDTO, GenreDTO } from './models/genre';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 import { PaginationDTO } from '../shared/models/paginationDTO';
 import { buildQueryParams } from '../shared/functions/build-query-params';
 import { ICRUDService } from '../shared/interfaces/icrud-service';
